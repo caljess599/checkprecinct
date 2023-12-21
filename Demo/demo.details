@@ -5,3 +5,6 @@ authors:
   - caljess599 (Github)
 resources:
   - https://opendata.charlottesville.org/
+normalize_css: no
+load_type: d
+  ...
