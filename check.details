@@ -1,0 +1,7 @@
+---
+name: Find Your Voting Precinct (Charlottesville, VA)
+description: Simple js/css/html script leveraging Open Data APIs
+authors:
+  - caljess599 (Github)
+resources:
+  - https://opendata.charlottesville.org/
