@@ -9,8 +9,7 @@ document.getElementById("clearBtn").addEventListener("click", function () {
 });
 
 formEl.addEventListener("submit", function (event) {
-  var placeholder = document.getElementById("data-output");
-
+  var tableResults = document.getElementById("data-output");
   var output = "";
   var formData = new FormData(event.target);
   var address = {};
@@ -18,22 +17,17 @@ formEl.addEventListener("submit", function (event) {
     address[key] = value;
   });
 
-  console.log("Address data", address);
+  //console.log("Address data", address);
 
   var street_num = address.street_num;
-
-  // alert if street number is blank
-
-  // we need to handle 9 1/2 (and probably a lot of other exceptions, too)
+  // TO DO alert if street number is blank
   var street_name = address.street_name.toUpperCase();
-  //var street_name = address.street_name.toUpperCase().split(" ")[0];
 
-  // first API call; return JSON object
+  // first API call
   const urlOuter = `https://gisweb.charlottesville.org/cvgisweb/rest/services/OpenData_1/MapServer/76/query?where=StreetName%20%3D%20'${street_name}'%20AND%20StreetNumber%20%3D%20'${street_num}'&outFields=FullAddress&outSR=4326&f=json`;
-
   let urlInner = "";
 
-  const firstPromise = fetch(urlOuter)
+  const addressLookup = fetch(urlOuter)
     .then((responseO) => responseO.json())
     .then((responseBodyO) => {
       return responseBodyO.features;
@@ -43,12 +37,10 @@ formEl.addEventListener("submit", function (event) {
       console.error(err);
     });
 
-  firstPromise.then((addresses) => {
-    console.log("First promise:");
-    console.log(addresses);
+  // call the initial address lookup
+  addressLookup.then((addresses) => {
+    // define the function that will lookup the precinct for each address
     let precinctLookups = addresses.map((address) => {
-      // var address = addresses[0]
-      var fullAddress = address.attributes.FullAddress;
       var geometry = address.geometry;
       var geox = geometry.x;
       var geoy = geometry.y;
@@ -56,14 +48,12 @@ formEl.addEventListener("submit", function (event) {
       return fetch(urlInner)
         .then((responseI) => responseI.json())
         .then((responseBodyI) => {
-          console.log("Making inner request:");
           var precinctDetails = responseBodyI.features[0];
           var precinctName = precinctDetails.attributes.PrecinctName;
           var precinctNumber = precinctDetails.attributes.PrecinctNumber;
           var precinct = `${precinctName} (${precinctNumber})`;
+          // add the precinct to the existing attributes array
           address.attributes.Precinct = precinct;
-          console.log("I'm going to return:");
-          console.log(address);
           return address;
         })
         .catch((err) => {
@@ -71,24 +61,24 @@ formEl.addEventListener("submit", function (event) {
           console.error(err);
         });
     }); // end map loop
+
+    // Now call precinctLookups wth Promise.all
+    // The promises are al completed before .then is called here
     Promise.all(precinctLookups).then((addresses) => {
-      // All the 'return' operations will be executed when the .then is executed
-      console.log("All the promises have been executed here:");
-      console.log(addresses);
+      // use another loop to create the display table
       let outputLoop = addresses.map((address) => {
         output += `
           <tr>
             <td> ${address.attributes.FullAddress}</td>
-            <td> ${address.attributes.Precinct}<td>
+            <td> ${address.attributes.Precinct}</td>
           </tr>`;
       });
-
+      // display the table, etc.
       displayTable.hidden = false;
-      placeholder.innerHTML = output;
+      tableResults.innerHTML = output;
       showClearButton.hidden = false;
       return outputLoop;
     });
-    console.log("Output out here");
   });
   formEl.reset();
   event.preventDefault();
