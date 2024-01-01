@@ -1,3 +1,33 @@
+body {
+  padding: 10px;
+  font-family: sans-serif;
+  font-size: 18px;
+  color: #262E3D;
+  background-color: #fff;
+}
+
+body td {
+  border: solid 1px #DDEEEE;
+  color: #333;
+  padding: 10px;
+  text-shadow: 1px 1px 1px #fff;
+}
+
+p.instructions {
+  margin-top: 10px;
+  color: red;
+  font-size: 14px;
+}
+
+p.notes {
+  font: italic 12pt Times New Roman, serif;
+  margin-top: 20px;
+}
+
+label {
+  font: italic 12pt Times New Roman, serif;
+}
+
 table {
     border: solid 1px #DDEEEE;
     border-collapse: collapse;
@@ -10,11 +40,5 @@ thead th {
     color: #336B6B;
     padding: 10px;
     text-align: left;
-    text-shadow: 1px 1px 1px #fff;
-}
-body td {
-    border: solid 1px #DDEEEE;
-    color: #333;
-    padding: 10px;
     text-shadow: 1px 1px 1px #fff;
 }

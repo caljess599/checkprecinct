@@ -7,38 +7,21 @@
 
   <body>
     <form id="form">
-      <p>Precinct Lookup Form</p>
-      <p>Charlottesville, VA</p>
+      <h2>City of Cville Precinct Lookup Form</h2>
       <div class="form-group">
-        <label for="name">Enter a street number (cannot be blank)</label>
-        <input
-          type="text"
-          name="street_num"
-          class="form-control"
-          id="num"
-          placeholder="e.g., 123"
-        />
+        <label for=name>Enter a street number</label>
+        <input type="text" name="street_num" class="form-control" id="num" placeholder="e.g., 123">
       </div>
       <div class="form-group">
-        <label for="name">Enter a street name</label>
-        <input
-          type="text"
-          name="street_name"
-          class="form-control"
-          id="name"
-          placeholder="e.g., monticello"
-        />
-        <p class="instructions">
-          Don't include street type (RD, AVE, etc) or direction (N, NW, etc) or
-          Unit.
-        </p>
-        <p class="instructions">
-          The search will return a list of possible matches.
-        </p>
+        <label for=name>Enter a street name</label>
+        <input type="text" name="street_name" class="form-control" id="name" placeholder="e.g., monticello">
+        <p class="instructions">Don't include:<br>
+        • Street type (RD, AVE, LN, etc.)<br>
+        • Street direction appearing after street name (SW, NW, etc.)<br>
+        • Unit number<br>
+        The search will return all possible matches.</p>
       </div>
-      <button type="submit" id="submitBtn" class="btn btn-primary">
-        Submit
-      </button>
+      <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
     </form>
 
     <table id="resultsTable" hidden="true">
@@ -50,16 +33,16 @@
       </thead>
       <tbody id="data-output">
         <!--Populated by javascript API call -->
+
       </tbody>
     </table>
 
-    <button type="clear" hidden="true" id="clearBtn" class="btn btn-primary">
-      Clear Results
-    </button>
+    <button type="clear" hidden="true" id="clearBtn" class="btn btn-primary">Clear Results</button>
 
-    <p class="instructions">
-      How does this work? This script makes API calls to public GIS data
-      available at https://opendata.charlottesville.org/
+    <p class="notes">
+      How does this work? <br>
+      This script makes API calls to public GIS data available at https://opendata.charlottesville.org/<br>
+      Source code available <a href=https://github.com/caljess599/checkprecinct/tree/main>on Github</a>.
     </p>
 
     <script type="text/javascript" src="app.js"></script>
