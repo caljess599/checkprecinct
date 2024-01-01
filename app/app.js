@@ -76,7 +76,8 @@ formEl.addEventListener("submit", function (event) {
               </tr>`;
         });
         displayTable.hidden = false;
-        placeholder.innerHTML = output;
+        tableResults.innerHTML = output;
+        showNoResults.innerHTML = "";
         showClearButton.hidden = false;
       } else {
         output = `
