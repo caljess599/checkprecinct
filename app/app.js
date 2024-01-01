@@ -1,6 +1,7 @@
 var formEl = document.getElementById("form");
 var displayTable = document.getElementById("resultsTable");
 var showClearButton = document.getElementById("clearBtn");
+var showNoResults = document.getElementById("noResults");
 
 document.getElementById("clearBtn").addEventListener("click", function () {
   // hide the table
@@ -66,17 +67,24 @@ formEl.addEventListener("submit", function (event) {
     // The promises are al completed before .then is called here
     Promise.all(precinctLookups).then((addresses) => {
       // use another loop to create the display table
-      let outputLoop = addresses.map((address) => {
-        output += `
-          <tr>
-            <td> ${address.attributes.FullAddress}</td>
-            <td> ${address.attributes.Precinct}</td>
-          </tr>`;
-      });
-      // display the table, etc.
-      displayTable.hidden = false;
-      tableResults.innerHTML = output;
-      showClearButton.hidden = false;
+      if (addresses.length > 0) {
+        let outputLoop = addresses.map((address) => {
+          output += `
+              <tr>
+                <td>${address.attributes.FullAddress}</td>
+                <td>${address.attributes.Precinct}</td>
+              </tr>`;
+        });
+        displayTable.hidden = false;
+        placeholder.innerHTML = output;
+        showClearButton.hidden = false;
+      } else {
+        output = `
+          	<p>No match found for ${street_num} ${street_name}</p>
+           	`;
+        showNoResults.innerHTML = output;
+        showClearButton.hidden = true;
+      } // end if statement for addresses length
       return outputLoop;
     });
   });
