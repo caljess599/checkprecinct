@@ -8,6 +8,9 @@
   <body>
     <form id="form">
       <h2>City of Cville Precinct Lookup Form</h2>
+      <p class="instructions">
+        <b>Please review the instructions below this form!</b>
+      </p>
       <div class="form-group">
         <label for="name">Enter a street number</label>
         <input
@@ -27,13 +30,6 @@
           id="name"
           placeholder="e.g., monticello"
         />
-        <p class="instructions">
-          Don't include:<br />
-          • Street type (RD, AVE, LN, etc.)<br />
-          • Street direction appearing after street name (SW, NW, etc.)<br />
-          • Unit number<br />
-          The search will return all possible matches.
-        </p>
       </div>
       <button type="submit" id="submitBtn" class="btn btn-primary">
         Submit
@@ -57,6 +53,20 @@
     </button>
 
     <p class="instructions" id="noResults"></p>
+    <hr />
+    <p class="instructions">
+      <b>HOW TO USE THIS FORM</b><br />
+      <b>When you type a street name, don't include:</b> <br />
+      • Street type (RD, AVE, LN, etc.)<br />
+      • Street direction (W, E, NW, SE), whether it appears before or after the
+      street name<br />
+      • Unit number<br /><br />
+      <b>Examples:</b><br />
+      • W Main St becomes <b>Main</b><br />
+      • 10th St becomes <b>10</b><br />
+      • Use a space for "half" streets, e.g., <b>9 1/2</b><br /><br />
+      <b><i>The search will return all relevant matches.</i></b>
+    </p>
 
     <p class="notes">
       How does this work? <br />
