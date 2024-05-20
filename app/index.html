@@ -7,12 +7,14 @@
 
   <body>
     <form id="form">
-      <h2>City of Cville Precinct Lookup Form</h2>
+      <h2>City of Charlottesville Precinct Lookup Form</h2>
       <p class="instructions">
-        <b>Please review the instructions below this form!</b>
+        Use the power of the City's GIS data to find or verify the correct precinct for any Charlottesville address!</br>
+        Refer to the instructions below for help using the form correctly.<br>
+        Enter the voter's address:
       </p>
       <div class="form-group">
-        <label for="name">Enter a street number</label>
+        <label for="name">Enter the building/house number</label>
         <input
           type="text"
           name="street_num"
@@ -22,7 +24,7 @@
         />
       </div>
       <div class="form-group">
-        <label for="name">Enter a street name</label>
+        <label for="name">Enter the street name</label>
         <input
           type="text"
           name="street_name"
@@ -54,29 +56,61 @@
 
     <p class="instructions" id="noResults"></p>
     <hr />
+    
     <p class="instructions">
-      <b>HOW TO USE THIS FORM</b><br />
-      <b>For the street name, DO NOT include:</b> <br />
-      • Street type (RD, AVE, LN, etc.)<br />
-      • Street direction (W, E, NW, SE), whether it appears before or after the
-      street name<br />
-      • Unit number<br /><br />
-      <b>Examples:</b><br />
-      • W Main St becomes <b>Main</b><br />
-      • Numbered street names are written as so: <b>1st, 2nd, 3rd, 4th, 5th</b>,
-      etc. <br />
-      • "Half" streets are written like so: <b>9 1/2</b><br /><br />
-      <b><i>The search will return all relevant matches.</i></b>
+      <b>FORM INSTRUCTIONS</b><br />
+      <b>General rules</b><br />
+      <ul>
+        <li>You must enter a number; you cannot just enter a street name</li>
+        <li>The street type is never included (e.g., ST, DR, LN, CT) -- use just the name</li>
+        <li>Never include unit/apartment numbers; all residences that match a street address will be returned</li>
+      </ul>
+
+      <b>Rules for "special" streets</b><br />
+      <ul>
+        <li>Streets are entered <b>without</b> the compass quadrants, regardless of whether it appears before or after the name of the street (e.g., N, S, E, W, NW, etc.)</li>
+        <li>Whole-numbered streets are ended as ordinal numbers rather than words (e.g., 1st, 2nd, 3rd, 4th, etc.)</li>
+        <li>Fractional-numbered streets are entered as fractions (e.g., 6 1/2)</li>
+        <li>Hypenated street names are entered with a space isntead of the hyphen (e.g., Ridge McIntire) </li>
+      </ul>
     </p>
 
+    <b>Examples</b><br />
+    
+    <table id="instructTable" hidden="false">
+      <thead>
+        <tr>
+          <th>Looking for this address?</th>
+          <th>Enter it like this</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>100 W Main St</td>
+          <td>Building number: 100</br>Street name: Main</td>
+        </tr>
+        <tr>
+          <td>301 10-1/2 St NW</td>
+          <td>Building number:301</br>Street name: 10 1/2</td>
+        </tr>
+        <tr>
+          <td>1007 Fifth St SW</td>
+          <td>Building number:1007</br>Street name: 5th</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    
     <p class="notes">
-      How does this work? <br />
-      This script makes API calls to public GIS data available at <a
-      href=https://opendata.charlottesville.org/>Open Data Charlottesville<a
-        ><br />
-        Source code available <a
-        href=https://github.com/caljess599/checkprecinct/tree/main>on Github</a
-      >.
+      <b>How does this work?</b><br />
+      <ul>
+        <li>This script makes API calls to public GIS data available at <a
+          href=https://opendata.charlottesville.org/>Open Data Charlottesville<a
+            >.</li>
+        <li>The source code available <a
+          href=https://github.com/caljess599/checkprecinct/tree/main>on Github</a
+        >.</li>  
+      </ul>  
     </p>
 
     <script type="text/javascript" src="app.js"></script>
