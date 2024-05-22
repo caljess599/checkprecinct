@@ -1,20 +1,22 @@
 var formEl = document.getElementById("form");
-var displayTable = document.getElementById("resultsTable");
+var displayResultsTable = document.getElementById("resultsTable");
+var displayInstructionsTable = document.getElementById("instructTable")
 var showClearButton = document.getElementById("clearBtn");
 var showNoResults = document.getElementById("noResults");
+var clarkAddress = "https://www.charlottesville.gov/454/Polling-Places#:~:text=Clark%20Precinct%20(102)%20%2D%20Clark%20Elementary%20School%20Gym%20%2D%C2%A0"
 
-document.getElementById("clearBtn").addEventListener("click", function () {
+document.getElementById("clearBtn").addEventListener("click", function() {
   // hide the table
   showClearButton.hidden = true;
-  displayTable.hidden = true;
+  displayResultsTable.hidden = true;
 });
 
-formEl.addEventListener("submit", function (event) {
+formEl.addEventListener("submit", function(event) {
   var tableResults = document.getElementById("data-output");
   var output = "";
   var formData = new FormData(event.target);
   var address = {};
-  formData.forEach(function (value, key) {
+  formData.forEach(function(value, key) {
     address[key] = value;
   });
 
@@ -52,9 +54,18 @@ formEl.addEventListener("submit", function (event) {
           var precinctDetails = responseBodyI.features[0];
           var precinctName = precinctDetails.attributes.PrecinctName;
           var precinctNumber = precinctDetails.attributes.PrecinctNumber;
-          var precinct = `${precinctName} (${precinctNumber})`;
+          //var precinct = `${precinctName} (${precinctNumber})`;
+          var precinctLinkedName = `${precinctName}`
+            switch (precinctName) {
+              case "Clark":
+                precinctLinkedName = `<a href="${clarkAddress}"> Clark Precinct</a>`
+                break;
+              default:
+                precinctLinkedName = `${precinctName}`
+            }
+
           // add the precinct to the existing attributes array
-          address.attributes.Precinct = precinct;
+          address.attributes.Precinct = precinctLinkedName;
           return address;
         })
         .catch((err) => {
@@ -75,7 +86,7 @@ formEl.addEventListener("submit", function (event) {
                 <td>${address.attributes.Precinct}</td>
               </tr>`;
         });
-        displayTable.hidden = false;
+        displayResultsTable.hidden = false;
         tableResults.innerHTML = output;
         showNoResults.innerHTML = "";
         showClearButton.hidden = false;

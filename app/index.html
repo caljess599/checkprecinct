@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <link rel="stylesheet" href="style.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,29 +10,17 @@
     <form id="form">
       <h2>City of Charlottesville Precinct Lookup Form</h2>
       <p class="instructions">
-        Use the power of the City's GIS data to find or verify the correct precinct for any Charlottesville address!</br>
-        Refer to the instructions below for help using the form correctly.<br>
-        Enter the voter's address:
-      </p>
+        Use the power of the City's GIS data to find or verify the correct precinct for any Charlottesville address!</p>
+      <p class="instructions">Refer to the instructions below for help using the form correctly.</p>
+      <hr />
+      <p class="instructions"><b>Enter the voter's address</b></p>
       <div class="form-group">
         <label for="name">Enter the building/house number</label>
-        <input
-          type="text"
-          name="street_num"
-          class="form-control"
-          id="num"
-          placeholder="e.g., 123"
-        />
+        <input type="text" name="street_num" class="form-control" id="num" placeholder="e.g., 123" />
       </div>
       <div class="form-group">
         <label for="name">Enter the street name</label>
-        <input
-          type="text"
-          name="street_name"
-          class="form-control"
-          id="name"
-          placeholder="e.g., monticello"
-        />
+        <input type="text" name="street_name" class="form-control" id="name" placeholder="e.g., monticello" />
       </div>
       <button type="submit" id="submitBtn" class="btn btn-primary">
         Submit
@@ -56,28 +45,27 @@
 
     <p class="instructions" id="noResults"></p>
     <hr />
-    
-    <p class="instructions">
-      <b>FORM INSTRUCTIONS</b><br />
-      <b>General rules</b><br />
-      <ul>
-        <li>You must enter a number; you cannot just enter a street name</li>
-        <li>The street type is never included (e.g., ST, DR, LN, CT) -- use just the name</li>
-        <li>Never include unit/apartment numbers; all residences that match a street address will be returned</li>
-      </ul>
 
-      <b>Rules for "special" streets</b><br />
-      <ul>
-        <li>Streets are entered <b>without</b> the compass quadrants, regardless of whether it appears before or after the name of the street (e.g., N, S, E, W, NW, etc.)</li>
-        <li>Whole-numbered streets are ended as ordinal numbers rather than words (e.g., 1st, 2nd, 3rd, 4th, etc.)</li>
-        <li>Fractional-numbered streets are entered as fractions (e.g., 6 1/2)</li>
-        <li>Hypenated street names are entered with a space isntead of the hyphen (e.g., Ridge McIntire) </li>
-      </ul>
-    </p>
+
+    <b>FORM INSTRUCTIONS</b><br />
+    <b>General rules</b><br />
+    <ul>
+      <li>You must enter a number; you cannot just enter a street name</li>
+      <li>The street type is never included (e.g., ST, DR, LN, CT) -- use just the name</li>
+      <li>Never include unit/apartment numbers; all residences that match a street address will be returned</li>
+    </ul>
+
+    <b>Rules for "special" streets</b><br />
+    <ul>
+      <li>Streets are entered <b>without</b> the compass quadrants, regardless of whether it appears before or after the name of the street (e.g., N, S, E, W, NW, etc.)</li>
+      <li>Whole-numbered streets are ended as ordinal numbers rather than words (e.g., 1st, 2nd, 3rd, 4th, etc.)</li>
+      <li>Fractional-numbered streets are entered as fractions (e.g., 6 1/2)</li>
+      <li>Hypenated street names are entered with a space instead of the hyphen (e.g., Ridge McIntire) </li>
+    </ul>
 
     <b>Examples</b><br />
-    
-    <table id="instructTable" hidden="false">
+
+    <table id="instructTable">
       <thead>
         <tr>
           <th>Looking for this address?</th>
@@ -87,32 +75,33 @@
       <tbody>
         <tr>
           <td>100 W Main St</td>
-          <td>Building number: 100</br>Street name: Main</td>
+          <td><b>Building number: </b> 100</br><b>Street name: </b> Main</td>
         </tr>
         <tr>
           <td>301 10-1/2 St NW</td>
-          <td>Building number:301</br>Street name: 10 1/2</td>
+          <td><b>Building number: </b>301</br><b>Street name: </b>10 1/2</td>
         </tr>
         <tr>
           <td>1007 Fifth St SW</td>
-          <td>Building number:1007</br>Street name: 5th</td>
+          <td><b>Building number: </b>1007</br><b>Street name: </b>5th</td>
+        </tr>
+        <tr>
+          <td>247 Ridge-McIntire Rd</td>
+          <td><b>Building number: </b>247</br><b>Street name: </b>Ridge McIntire</td>
         </tr>
       </tbody>
     </table>
-    
-    
+
+
     <p class="notes">
       <b>How does this work?</b><br />
       <ul>
-        <li>This script makes API calls to public GIS data available at <a
-          href=https://opendata.charlottesville.org/>Open Data Charlottesville<a
-            >.</li>
-        <li>The source code available <a
-          href=https://github.com/caljess599/checkprecinct/tree/main>on Github</a
-        >.</li>  
-      </ul>  
+        <li>This script makes API calls to public GIS data available at <a href=https://opendata.charlottesville.org />Open Data Charlottesville<a>.</li>
+        <li>The source code available <a href=https://github.com/caljess599/checkprecinct/tree/main>on Github</a>.</li>
+      </ul>
     </p>
 
     <script type="text/javascript" src="app.js"></script>
   </body>
+
 </html>
