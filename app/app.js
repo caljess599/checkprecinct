@@ -68,31 +68,31 @@ formEl.addEventListener("submit", function(event) {
           var precinctLinkedName = `${precinctName}`
             switch (precinctName) {
               case "Key Recreation":
-                precinctLinkedName = `<a href="${keyRecAddress}" target="_blank">Key Recreation</a>`
+                precinctLinkedName = `<a href="${keyRecAddress}" target="_blank">Key Recreation Precinct</a></br>Herman Key Recreation Center`
                 break;
               case "Clark":
-                precinctLinkedName = `<a href="${clarkAddress}" target="_blank">Clark</a>`
+                precinctLinkedName = `<a href="${clarkAddress}" target="_blank">Clark Precinct</a>`
                 break;
               case "Carver":
-                precinctLinkedName = `<a href="${carverAddress}" target="_blank">Carver</a>`
+                precinctLinkedName = `<a href="${carverAddress}" target="_blank">Carver Precinct</a>`
                 break;
               case "Venable":
-                precinctLinkedName = `<a href="${venableAddress}" target="_blank">Venable</a>`
+                precinctLinkedName = `<a href="${venableAddress}" target="_blank">Venable Precinct</a>`
                 break;
               case "Jackson-Via":
-                precinctLinkedName = `<a href="${jacksonViaAddress}" target="_blank">Jackson-Via</a>`
+                precinctLinkedName = `<a href="${jacksonViaAddress}" target="_blank">Jackson-Via Precinct</a>`
                 break;
               case "Johnson":
-                precinctLinkedName = `<a href="${johnsonAddress}" target="_blank">Johnson</a>`
+                precinctLinkedName = `<a href="${johnsonAddress}" target="_blank">Johnson Precinct</a>`
                 break;
               case "Buford":
-                precinctLinkedName = `<a href="${bufordAddress}" target="_blank">Buford</a>`
+                precinctLinkedName = `<a href="${bufordAddress}" target="_blank">Buford Precinct</a>`
                 break;
               case "CHS":
-                precinctLinkedName = `<a href="${chsAddress}" target="_blank">Charlottesville High</a>`
+                precinctLinkedName = `<a href="${chsAddress}" target="_blank">Charlottesville High Precinct</a>`
                 break;
               case "Walker":
-                precinctLinkedName = `<a href="${walkerAddress}" target="_blank">Walker</a>`
+                precinctLinkedName = `<a href="${walkerAddress}" target="_blank">Walker Precinct</a>`
                 break;
               default:
                 precinctLinkedName = `${precinctName}`
