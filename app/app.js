@@ -3,7 +3,17 @@ var displayResultsTable = document.getElementById("resultsTable");
 var displayInstructionsTable = document.getElementById("instructTable")
 var showClearButton = document.getElementById("clearBtn");
 var showNoResults = document.getElementById("noResults");
+
+// precinct addresses
 var clarkAddress = "https://www.charlottesville.gov/454/Polling-Places#:~:text=Clark%20Precinct%20(102)%20%2D%20Clark%20Elementary%20School%20Gym%20%2D%C2%A0"
+var keyRecAddress = "https://www.charlottesville.gov/454/Polling-Places#:~:text=Key%20Recreation%20Precinct%20(101)%20%2D%20Herman%20Key%20Recreation%20Center"
+var carverAddress = "https://www.charlottesville.gov/454/Polling-Places#:~:text=Carver%20Precinct%20(201)%20%2D%20Carver%20Recreation%20Center"
+var venableAddress = "https://www.charlottesville.gov/454/Polling-Places#:~:text=Venable%20Precinct%20(202)%20%2D%20Venable%20Elementary%20School%20Gym%C2%A0"
+var jacksonViaAddress = "https://www.charlottesville.gov/454/Polling-Places#:~:text=Jackson%2DVia%20(301)%20%2D%20Jackson%2DVia%20Elementary%20School%C2%A0"
+var johnsonAddress = "https://www.charlottesville.gov/454/Polling-Places#:~:text=Johnson%20Precinct%20(302)%20%2D%20Johnson%20Elementary%20School%20Cafeteria"
+var bufordAddress = "https://www.charlottesville.gov/454/Polling-Places#:~:text=Buford%20Precinct%20(303)%20%C2%A0%2D%20Buford%20Middle%20School%20Media%20Center"
+var chsAddress = "https://www.charlottesville.gov/454/Polling-Places#:~:text=Charlottesville%20High%20Precinct%20(401)%20%2D%20Charlottesville%20High%20School%20Cafeteria%C2%A0"
+var walkerAddress = "https://www.charlottesville.gov/454/Polling-Places#:~:text=Walker%20Precinct%20(402)%20%2D%20Walker%20Upper%20Elementary%20School%20Gym"
 
 document.getElementById("clearBtn").addEventListener("click", function() {
   // hide the table
@@ -53,12 +63,36 @@ formEl.addEventListener("submit", function(event) {
         .then((responseBodyI) => {
           var precinctDetails = responseBodyI.features[0];
           var precinctName = precinctDetails.attributes.PrecinctName;
-          var precinctNumber = precinctDetails.attributes.PrecinctNumber;
+          //var precinctNumber = precinctDetails.attributes.PrecinctNumber;
           //var precinct = `${precinctName} (${precinctNumber})`;
           var precinctLinkedName = `${precinctName}`
             switch (precinctName) {
+              case "Key Recreation":
+                precinctLinkedName = `<a href="${keyRecAddress}">Key Recreation</a>`
+                break;
               case "Clark":
-                precinctLinkedName = `<a href="${clarkAddress}"> Clark Precinct</a>`
+                precinctLinkedName = `<a href="${clarkAddress}">Clark</a>`
+                break;
+              case "Carver":
+                precinctLinkedName = `<a href="${carverAddress}">Carver</a>`
+                break;
+              case "Venable":
+                precinctLinkedName = `<a href="${venableAddress}">Venable</a>`
+                break;
+              case "Jackson-Via":
+                precinctLinkedName = `<a href="${jacksonViaAddress}">Jackson-Via</a>`
+                break;
+              case "Johnson":
+                precinctLinkedName = `<a href="${johnsonAddress}">Johnson</a>`
+                break;
+              case "Buford":
+                precinctLinkedName = `<a href="${bufordAddress}">Buford</a>`
+                break;
+              case "CHS":
+                precinctLinkedName = `<a href="${chsAddress}">Charlottesville High</a>`
+                break;
+              case "Walker":
+                precinctLinkedName = `<a href="${walkerAddress}">Walker</a>`
                 break;
               default:
                 precinctLinkedName = `${precinctName}`
