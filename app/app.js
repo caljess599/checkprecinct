@@ -70,13 +70,13 @@ formEl.addEventListener("submit", function(event) {
               case "Key Recreation":
                 precinctLinkedName = `Key Recreation Precinct (<a href="${keyRecAddress}" target="_blank">Google map</a>)</br>Herman Key Recreation Center`
                 break;
-              case "Clark":
+              case "Summit/Clark":
                 precinctLinkedName = `Clark Precinct (<a href="${clarkAddress}" target="_blank">Google map</a>)</br>Clark Elementary School Gym`
                 break;
               case "Carver":
                 precinctLinkedName = `Carver Precint (<a href="${carverAddress}" target="_blank">Google map</a>)</br>Carver Recreation Center`
                 break;
-              case "Venable":
+              case "Trailblazer/Venable":
                 precinctLinkedName = `Venable Precinct (<a href="${venableAddress}" target="_blank">Google map</a>)</br>Venable Elementary School Gym`
                 break;
               case "Jackson-Via":
