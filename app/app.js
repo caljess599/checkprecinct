@@ -109,7 +109,7 @@ formEl.addEventListener("submit", function(event) {
     }); // end map loop
 
     // Now call precinctLookups wth Promise.all
-    // The promises are al completed before .then is called here
+    // The promises are all completed before .then is called here
     Promise.all(precinctLookups).then((addresses) => {
       // use another loop to create the display table
       if (addresses.length > 0) {
@@ -120,15 +120,23 @@ formEl.addEventListener("submit", function(event) {
                 <td>${address.attributes.Precinct}</td>
               </tr>`;
         });
+        // SHOW the table
         displayResultsTable.hidden = false;
+        // SET the tableResults innerHTML to the output created by the above loop
         tableResults.innerHTML = output;
+        // SET (to empty) the showNoResults innerHTML
         showNoResults.innerHTML = "";
+        // SHOW the clear button
         showClearButton.hidden = false;
-      } else {
+      } else { // there are no results to show
         output = `
           	<p>No match found for ${street_num} ${street_name}</p>
            	`;
+        // HIDE the table
+        displayResultsTable.hidden = true;
+        // SET the showNoResults innerHTML to the address sought
         showNoResults.innerHTML = output;
+        // HIDE the clear results button
         showClearButton.hidden = true;
       } // end if statement for addresses length
       return outputLoop;
