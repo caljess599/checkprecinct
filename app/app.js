@@ -71,25 +71,25 @@ formEl.addEventListener("submit", function(event) {
                 precinctLinkedName = `Key Recreation Precinct (<a href="${keyRecAddress}" target="_blank">Google map</a>)</br>Herman Key Recreation Center`
                 break;
               case "Summit/Clark":
-                precinctLinkedName = `Summit Precinct (formerly Clark) (<a href="${summitAddress}" target="_blank">Google map</a>)</br>Summit Elementary School Gym`
+                precinctLinkedName = `Summit Precinct (<a href="${summitAddress}" target="_blank">Google map</a>)</br>Summit Elementary School Gym`
                 break;
               case "Carver":
                 precinctLinkedName = `Carver Precint (<a href="${carverAddress}" target="_blank">Google map</a>)</br>Carver Recreation Center`
                 break;
               case "Trailblazer/Venable":
-                precinctLinkedName = `Trailblazer Precinct (formerly Venable) (<a href="${trailblazerAddress}" target="_blank">Google map</a>)</br>Trailblazer Elementary School Gym`
+                precinctLinkedName = `Trailblazer Precinct (<a href="${trailblazerAddress}" target="_blank">Google map</a>)</br>Trailblazer Elementary School Gym`
                 break;
               case "Jackson-Via":
                 precinctLinkedName = `Jackson-Via Precinct (<a href="${jacksonViaAddress}" target="_blank">Google map</a>)</br>Jackson-Via Elementary School`
                 break;
               case "Tall Oaks/Johnson":
-                precinctLinkedName = `Tall Oaks Precinct (<a href="${talloaksAddress}" target="_blank">Google map</a>)</br>Johnson Elementary School Cafeteria`
+                precinctLinkedName = `Tall Oaks Precinct (formerly Johnson) (<a href="${talloaksAddress}" target="_blank">Google map</a>)</br>Tall Oaks Elementary School Cafeteria`
                 break;
               case "CMS/Buford":
-                precinctLinkedName = `Charlottesville Middle School Precinct (<a href="${cvillemiddleschoolAddress}" target="_blank">Google map</a>)</br>Buford Middle School Media Center`
+                precinctLinkedName = `Charlottesville Middle School Precinct (formerly Buford) (<a href="${cvillemiddleschoolAddress}" target="_blank">Google map</a>)</br>Charlottesville Middle School Media Center`
                 break;
               case "CHS":
-                precinctLinkedName = `Charlottesville High Precinct (<a href="${chsAddress}" target="_blank">Google map</a>)</br>Charlottesville High School Cafeteria`
+                precinctLinkedName = `Charlottesville High School Precinct (<a href="${chsAddress}" target="_blank">Google map</a>)</br>Charlottesville High School Cafeteria`
                 break;
               case "Walker":
                 precinctLinkedName = `Walker Precinct (<a href="${walkerAddress}" target="_blank">Google map</a>)</br>Walker Upper Elementary School Gym`
