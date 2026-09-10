@@ -42,3 +42,57 @@ thead th {
     text-align: left;
     text-shadow: 1px 1px 1px #fff;
 }
+
+/* 1. Anchor the container */
+.autocomplete-wrapper {
+    position: relative; 
+    width: 100%;
+    max-width: 400px; /* Adjust this to fit your app's design */
+    font-family: sans-serif;
+}
+
+/* 2. Make the list float over the page */
+#suggestions-list {
+    position: absolute; 
+    top: 100%; /* Snaps the top of the list to the bottom of the input */
+    left: 0;
+    width: 100%;
+    margin: 2px 0 0 0;
+    padding: 0;
+    list-style: none;
+    
+    /* Make it look like a menu */
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Adds a subtle drop shadow */
+    
+    /* Handle scrolling for long lists */
+    max-height: 250px; 
+    overflow-y: auto; 
+    z-index: 1000; /* Ensures it stays on top of other elements */
+}
+
+/* 3. Style the individual items */
+#suggestions-list li {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #333;
+}
+
+#suggestions-list li:last-child {
+    border-bottom: none;
+}
+
+/* 4. Add a hover effect so they know it's clickable */
+#suggestions-list li:hover {
+    background-color: #0078d4;
+    color: white;
+}
+
+/* 5. Hide the dropdown completely when it has no suggestions */
+#suggestions-list:empty {
+    display: none;
+}
